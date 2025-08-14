@@ -5,6 +5,8 @@ void main() {
 }
 
 class ExpensePlannerApp extends StatelessWidget {
+  const ExpensePlannerApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,6 +30,8 @@ class Expense {
 }
 
 class ExpenseHomePage extends StatefulWidget {
+  const ExpenseHomePage({super.key});
+
   @override
   State<ExpenseHomePage> createState() => _ExpenseHomePageState();
 }
@@ -218,9 +222,9 @@ class _ExpenseHomePageState extends State<ExpenseHomePage> {
         children: [
           // Total Expense Card
           AnimatedSwitcher(
-            duration: Duration(milliseconds: 400),
+            duration: Duration(milliseconds: 250),
             child: Card(
-              key: ValueKey("${_totalExpense.toStringAsFixed(2)}-${_selectedFilter}"),
+              key: ValueKey("${_totalExpense.toStringAsFixed(2)}-$_selectedFilter"),
               margin: EdgeInsets.all(12),
               color: Colors.blue.shade50,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -234,7 +238,7 @@ class _ExpenseHomePageState extends State<ExpenseHomePage> {
                       child: Text(
                         _selectedFilter == "All"
                             ? "Total Expenses"
-                            : "Total for $_selectedFilter",
+                            : "Total Expenses for $_selectedFilter",
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                     ),
